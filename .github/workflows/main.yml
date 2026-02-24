@@ -20,9 +20,11 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push Image
-  uses: docker/build-push-action@v5
-  with:
-    context: ./app
-    file: ./app/Dockerfile
-    push: true
-    tags: ajtasingh/cloudforge-app:latest
+        uses: docker/build-push-action@v5
+        with:
+          context: ./app
+          file: ./app/Dockerfile
+          push: true
+          tags: |
+            ajtasingh/cloudforge-app:latest
+            ajtasingh/cloudforge-app:${{ github.run_number }}
