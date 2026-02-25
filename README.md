@@ -1,61 +1,83 @@
-## CloudForge – End-to-End DevOps Platform
+CloudForge – End-to-End DevOps Platform
+Overview
 
-## Overview
+CloudForge is a full DevOps lifecycle implementation demonstrating containerization, CI/CD automation, orchestration, Infrastructure as Code, and configuration management using industry-standard tools.
 
-CloudForge is a full DevOps lifecycle project that demonstrates containerization, CI/CD automation, orchestration, Infrastructure as Code, and configuration management using industry-standard tools.
+The project simulates a real-world DevOps workflow from application build to automated deployment and infrastructure provisioning.
 
-This project simulates a real-world DevOps workflow from application build to automated deployment.
+Tech Stack
 
----
+Docker
 
-## Tech Stack
+GitHub Actions (CI/CD)
 
-- Docker
-- GitHub Actions (CI/CD)
-- Docker Compose
-- Kubernetes (KIND Cluster)
-- Terraform
-- Ansible
-- Flask (Python)
-- Nginx (Reverse Proxy)
+Docker Compose
 
----
+Kubernetes (KIND Cluster)
 
-## Architecture Flow
+Terraform
 
-1. Code pushed to GitHub
-2. GitHub Actions builds & pushes Docker image to Docker Hub
-3. Application deployed using:
-   - Docker Compose (multi-container)
-   - Kubernetes (Deployment + Service)
-4. Infrastructure provisioned using Terraform
-5. Deployment automated using Ansible
+Ansible
 
----
+Flask (Python)
 
-## Docker
+Nginx (Reverse Proxy)
+
+Architecture Flow
+
+Code pushed to GitHub
+
+GitHub Actions builds and pushes Docker image to Docker Hub
+
+Application deployed using:
+
+Docker Compose (multi-container setup with Nginx reverse proxy)
+
+Kubernetes (Deployment and Service configuration)
+
+Infrastructure provisioned using Terraform
+
+Application deployment automated using Ansible
+
+Docker
 
 Build image:
-```bash
+
 docker build -t ajtasingh/cloudforge-app:latest .
 
-## Run container:
+Run container:
 
 docker run -p 5000:5000 ajtasingh/cloudforge-app
-
-## Terraform (Infrastructure as Code)
+Kubernetes Deployment
+kubectl apply -f k8s/
+kubectl get pods
+kubectl get svc
+Terraform (Infrastructure as Code)
 cd terraform
 terraform init
 terraform plan
 terraform apply
 terraform destroy
-
-
-## Ansible Deployment
+Ansible Deployment
 cd ansible
 ansible-playbook -i inventory.ini deploy.yml
+Key DevOps Concepts Demonstrated
 
-** Author**
+Container lifecycle management
+
+CI/CD automation using GitHub Actions
+
+Reverse proxy architecture with Nginx
+
+Kubernetes Deployment and Service networking
+
+Infrastructure provisioning using Terraform
+
+State management and dependency handling in Terraform
+
+Idempotent configuration management using Ansible
+
+Author
 
 Ajita Singh
 DevOps | Cloud | Infrastructure Automation
